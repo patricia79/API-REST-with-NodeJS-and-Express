@@ -9,14 +9,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/api/product',(req, res) => {
     try {
-      res.status(200).json({message: 'hola'});
+      res.status(200).json({ product:['earphones', 'laptop','mouse']});
     } catch (error) {
     res.status(500).json({ message: "Internal Server Error" });
   }
   })
 
-  /*
-  product:['earphones', 'laptop','mouse']
+  
+ 
   app.post('/api/product',(req, res) => {
     try {
       console.log(req.body);
@@ -24,10 +24,10 @@ app.get('/api/product',(req, res) => {
     } catch (error) {
     res.status(500).json({ message: "Internal Server Error" });
   }
-  })
+  })// aqui no consigo que se me vea el body con el json de keys y values que le he puesto en el postman
 
-
-
+/*
+sagradafamilia@udance.es
   app.get ('/api/product/:productId',(req, res) => {
   })
 
@@ -40,7 +40,7 @@ app.get('/api/product',(req, res) => {
 */
 
 
-// port 3000
+// port 2500
 
 app.listen(config.port, () => {
   console.log(`API REST en http://localhost:${config.port}/`);
