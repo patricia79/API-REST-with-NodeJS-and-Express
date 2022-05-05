@@ -1,16 +1,17 @@
 'use strict'
 
 const express = require("express");
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
-
+app.use(express.json());
 const Product = require('./models/product')
 
 const app = express()
 const config = require('./config')
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+/* app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));*/ 
+
 /*
 app.get ('/api/product/:productId',(req, res) => {
 
