@@ -3,12 +3,13 @@
 const express = require("express");
 //const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
-app.use(express.json());
+
 const Product = require('./models/product')
 
 const app = express()
 const config = require('./config')
 
+app.use(express.json());
 /* app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));*/ 
 
@@ -56,7 +57,7 @@ app.get ('/api/product/:productId',(req, res) => {
 
 product0.save((err, productStored) => {
 
-  if (err) { res.status(500).send({message: 'Error saving to database: ${err}'})
+  if (err) { res.status(500).send({message: `Error saving to database: ${err}`})
   res.status(200).send({product0: productStored})
 }
 }
@@ -86,3 +87,4 @@ mongoose.connect('mongodb://localhost:27017/shop', (err, res) => {
     console.log(`API REST en http://localhost:${config.port}/`);
   });
 })
+let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
